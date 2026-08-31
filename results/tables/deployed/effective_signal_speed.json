@@ -1,0 +1,66 @@
+{
+  "title": "Effective information speed of FourCastNet v1 (AFNO)",
+  "source_audit": "results/deployed/real_emulator_audit.json",
+  "model": "FourCastNet v1 (AFNO), HuggingFace nvidia/fourcastnet1, loaded strict, validation-passing (t2m +6h wRMSE 2.32 K beats persistence 2.53 K)",
+  "protocol": "Single localized t2m Gaussian poke (sigma=500 km, cos-lat zero-mean), one 6 h autoregressive step; response = sqrt(sum_ch (M(x+eps p)-M(x))^2); numerical control M(x)-M(x) is exactly 0, so any nonzero response is real model influence.",
+
+  "step_hours": 6.0,
+  "step_seconds": 21600.0,
+
+  "max_reach_km": 20015.086226408785,
+  "antipode_km": 20015.086796020572,
+  "global_in_one_step": true,
+  "area_fraction_above_threshold": 1.0,
+  "reach_note": "The response is nonzero at EVERY grid point on Earth after one 6 h step; max reach equals the antipodal distance (the farthest point on the planet). rel_thr=0.001.",
+
+  "effective_speed_floor": {
+    "value_km_per_s": 0.92662436233374,
+    "value_m_per_s": 926.62436233374,
+    "definition": "max reach / step time = 20015 km / (6 h) = 0.927 km/s.",
+    "status": "LOWER BOUND ONLY",
+    "why_lower_bound": "This treats the antipodal reach as if it took the full 6 h step to arrive. But the influence is GLOBAL within a SINGLE indivisible model timestep, so the step time is an upper bound on the true travel time; the true effective speed is not resolvable below the model's 6 h resolution. The honest statement is that the effective Lieb-Robinson velocity is UNBOUNDED at the model's timestep resolution; 0.927 km/s is the floor implied by the largest distance and the coarsest possible travel time."
+  },
+
+  "effective_lieb_robinson_velocity": {
+    "value": "unbounded at the model's 6 h timestep resolution",
+    "explanation": "A single forward step couples every grid point to every other via the AFNO global 2D rFFT token mixing; the model has no notion of a sub-step delay, so it imposes no finite signal-propagation speed within a step. Floor = 0.927 km/s; the model places no ceiling."
+  },
+
+  "physical_cones": {
+    "advective_100ms": {
+      "speed_m_per_s": 100.0,
+      "radius_6h_km": 2160.0,
+      "comment": "Generous upper bound on advective / jet-stream transport speed."
+    },
+    "gravity_sound_300ms": {
+      "speed_m_per_s": 300.0,
+      "radius_6h_km": 6480.0,
+      "comment": "Generous upper bound covering fast gravity waves and the speed of sound (~340 m/s)."
+    }
+  },
+
+  "ratios": {
+    "effective_floor_over_advective_100ms": 9.2662436233374,
+    "effective_floor_over_gravity_sound_300ms": 3.0887478744458,
+    "effective_floor_over_speed_of_sound_340ms": 2.7253657715698236,
+    "max_reach_over_advective_cone_radius": 9.2662436233374,
+    "max_reach_over_gravity_cone_radius": 3.0887478744458,
+    "comment": "Even the FLOOR estimate exceeds the most generous physical signal speed by ~3x; the reach exceeds the gravity-wave cone radius by ~3x and the advective cone radius by ~9x. Because the true speed is unbounded at timestep resolution, these ratios are themselves lower bounds."
+  },
+
+  "out_of_cone_response": {
+    "area_frac_beyond_advective_100ms": 0.9715269207954407,
+    "area_frac_beyond_gravity_sound_300ms": 0.7628938555717468,
+    "energy_frac_beyond_advective_100ms": 0.09033185243606567,
+    "energy_frac_beyond_gravity_sound_300ms": 0.04116222634911537,
+    "energy_caveat": "The out-of-cone ENERGY is modest: ~9% beyond the 100 m/s cone and ~4% beyond the 300 m/s cone (response energy concentrates near the source). The acausal signature lives in the REACH (global in one step, 97% of the response AREA beyond the advective cone), not in the bulk energy. The wow is about how FAR the influence reaches, not how MUCH amplitude arrives there."
+  },
+
+  "honest_caveats": [
+    "Effective-speed framing is about REACH, not energy: the amplitude arriving at the antipode is small (out-of-cone energy ~4-9%) but nonzero, and a finite-domain-of-dependence PDE forbids it entirely at this lead time.",
+    "0.927 km/s is a FLOOR; the true effective velocity is unbounded at the 6 h timestep resolution because the coupling is instantaneous within a step.",
+    "Physical-cone speeds (100, 300 m/s) are themselves generous upper bounds on real atmospheric signal speeds; the model exceeds even these.",
+    "The model PASSES standard validation (t2m +6h wRMSE 2.32 K beats persistence), so this is an acausal regime inside an operationally skillful, deployed model, not an artifact of a broken model.",
+    "Numerical control is exactly 0 (deterministic eval), so the global response is genuine model influence, not floating-point noise."
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "default_replay": {
+    "requires_external_assets": false,
+    "network_access": false,
+    "description": "Default replay verifies committed compact records and regenerates derived tables and figures."
+  },
+  "assets": [
+    {
+      "asset_id": "weatherbench2-arco-era5-selected-analyses",
+      "asset_class": "weatherbench2_arco_era5",
+      "stable_identifier": "WeatherBench2 ARCO ERA5 1959-2023_01_10-wb13-6h-1440x721",
+      "immutable_url_or_doi": "doi:10.24381/cds.adbb2d47",
+      "source_uri": "gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721_with_derived_variables.zarr",
+      "version": "1959-2023_01_10-wb13-6h-1440x721_with_derived_variables",
+      "license": "Copernicus Climate Data Store licence",
+      "access_terms": "https://cds.climate.copernicus.eu/api-how-to",
+      "role": "Secondary deployed-model initial conditions",
+      "byte_size": null,
+      "sha256": null,
+      "retrieval_command": null,
+      "availability": "unavailable",
+      "unavailable_reason": "The selected Zarr chunks were not frozen with immutable byte sizes and SHA-256 values, so this secondary path is intentionally not runnable from the repository.",
+      "selected_dates_utc": [
+        "2020-01-01T00:00:00Z",
+        "2020-02-15T12:00:00Z",
+        "2020-04-01T00:00:00Z",
+        "2020-05-15T12:00:00Z",
+        "2020-07-15T12:00:00Z",
+        "2020-08-20T00:00:00Z",
+        "2020-10-01T12:00:00Z",
+        "2020-11-15T00:00:00Z",
+        "2021-01-10T00:00:00Z",
+        "2021-06-21T12:00:00Z"
+      ],
+      "selected_variables": [
+        "u10m",
+        "v10m",
+        "t2m",
+        "sp",
+        "msl",
+        "t850",
+        "u1000",
+        "v1000",
+        "z1000",
+        "u850",
+        "v850",
+        "z850",
+        "u500",
+        "v500",
+        "z500",
+        "t500",
+        "z50",
+        "r500",
+        "r850",
+        "tcwv",
+        "u100m",
+        "v100m",
+        "u250",
+        "v250",
+        "z250",
+        "t250"
+      ]
+    },
+    {
+      "asset_id": "nvidia-fourcastnet1-model",
+      "asset_class": "fourcastnet_v1_checkpoint",
+      "stable_identifier": "huggingface:nvidia/fourcastnet1",
+      "immutable_url_or_doi": "https://huggingface.co/nvidia/fourcastnet1",
+      "version": null,
+      "license": "Apache-2.0 listed by the upstream model repository",
+      "access_terms": "Upstream model repository terms apply",
+      "role": "Secondary FourCastNet v1 perturbation-response audit",
+      "byte_size": null,
+      "sha256": null,
+      "retrieval_command": null,
+      "availability": "unavailable",
+      "unavailable_reason": "No immutable upstream revision, checkpoint byte size, or checkpoint SHA-256 was banked."
+    },
+    {
+      "asset_id": "fourcastnet1-normalization-grid-arrays",
+      "asset_class": "fourcastnet_v1_normalization_and_grid",
+      "stable_identifier": "nvidia/fourcastnet1 associated normalization and 0.25-degree grid arrays",
+      "immutable_url_or_doi": null,
+      "version": null,
+      "license": null,
+      "access_terms": null,
+      "role": "Secondary normalization, latitude, and longitude inputs",
+      "byte_size": null,
+      "sha256": null,
+      "retrieval_command": null,
+      "availability": "unavailable",
+      "unavailable_reason": "The four associated arrays lack independently verified immutable identifiers, licenses, byte sizes, and SHA-256 values."
+    },
+    {
+      "asset_id": "pangu-weather-24h-onnx",
+      "asset_class": "pangu_weather_24_checkpoint",
+      "stable_identifier": "github:198808xc/Pangu-Weather@72bdd99096721e1a1f8912c37a9a3aff9ff0a4f2:pangu_weather_24.onnx",
+      "immutable_url_or_doi": "https://github.com/198808xc/Pangu-Weather/tree/72bdd99096721e1a1f8912c37a9a3aff9ff0a4f2",
+      "version": "released direct 24-hour ONNX graph",
+      "license": "CC BY-NC-SA 4.0, commercial use forbidden by the release",
+      "access_terms": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "role": "Optional direct 24-hour static compiled-support rerun",
+      "consumers": [
+        "tools/compiled_reach/cone_reach.py"
+      ],
+      "byte_size": 1181711187,
+      "sha256": "613a5c140a1399abcaffb4dbce32af373a1f5f56c515704f5be61925bb9fdcfd",
+      "retrieval_command": null,
+      "availability": "unavailable",
+      "unavailable_reason": "The checkpoint is not redistributed. Obtain it from the official public release and verify its byte size and SHA-256 before running the optional utility."
+    },
+    {
+      "asset_id": "corrected-existence-state-dictionaries",
+      "asset_class": "corrected_existence_state_dicts",
+      "stable_identifier": "git:9e5a7dc84f185b8969fbb88887cbd19de32f5a77:light-cone/iclr2027/artifact/results/checkpoints",
+      "stable_identifier_scope": "A path inside the private research repository at the declared source commit, not a path inside this repository. It is recorded so the provenance resolves if that repository is opened, and it is not resolvable by a reader of this repository.",
+      "immutable_url_or_doi": null,
+      "version": "source evidence commit 9e5a7dc84f185b8969fbb88887cbd19de32f5a77",
+      "license": "MIT source artifact",
+      "access_terms": "No sanitized immutable external store is declared",
+      "role": "Optional corrected-existence and multilayer-tail reruns",
+      "consumers": [
+        "scripts/experiments/run_corrected_existence.py",
+        "scripts/theory/verify_multilayer_tail.py"
+      ],
+      "byte_size": 3855340,
+      "sha256": null,
+      "retrieval_command": null,
+      "availability": "unavailable",
+      "unavailable_reason": "The ordinary checkpoints are excluded from Git and no sanitized immutable external download is available.",
+      "format": "PyTorch weights-only state dictionaries",
+      "members": [
+        {
+          "path": "cnn_k3_s0.pt",
+          "byte_size": 29353,
+          "sha256": "cc8f9674abcf82ef24fd9e9b476c5aecd7d02a06060142cda5f2052081d12be9",
+          "source_git_blob": "4a83b1a64afda3aac749cd11d96e80fe5a1e8b41"
+        },
+        {
+          "path": "fno_m6_s0.pt",
+          "byte_size": 237597,
+          "sha256": "2234b23b98cd718fba423356f364f22149909a2d41248dc9e377f6d33e750dc3",
+          "source_git_blob": "b3fbdc81d76790080215c94fee1b551679e423a8"
+        },
+        {
+          "path": "fno_m8_s0.pt",
+          "byte_size": 303133,
+          "sha256": "1d48a2e4981f5b542b77af114e3bf5c03d638290f9fd9f714a070aa52e699694",
+          "source_git_blob": "09132ba040e7e70b05d2a3b140f6692da7cb4178"
+        },
+        {
+          "path": "fno_m10_s0.pt",
+          "byte_size": 368693,
+          "sha256": "7926c3800fc9291dd0daee07e3c99a9a182e14f6fb55bc4d07ab2bcbaa5bf499",
+          "source_git_blob": "34c34507593bf1153f6175546d550f00a8a3570b"
+        },
+        {
+          "path": "fno_m12_s0.pt",
+          "byte_size": 434229,
+          "sha256": "69e1c33050919495f02a657707c34e7c02baff1f1ab90762abac14e3741cfcb7",
+          "source_git_blob": "7a0f07efa39bb18063cbb174b5084a52419bb524"
+        },
+        {
+          "path": "fno_m16_s0.pt",
+          "byte_size": 565301,
+          "sha256": "bc640ed492f9773a8bc38277ad0c0c3b3cbc0a08871c031b367a7a9db43a8d04",
+          "source_git_blob": "a4e2912299429de35e35354ab774921028a5f387"
+        },
+        {
+          "path": "fno_m24_s0.pt",
+          "byte_size": 827445,
+          "sha256": "ab2c24be8de29a69a153799776df6f69434ad34421a20c666b48b13641f8d5fd",
+          "source_git_blob": "cf524599b12c153fe26775199fa8d6ccf9fe1668"
+        },
+        {
+          "path": "fno_m32_s0.pt",
+          "byte_size": 1089589,
+          "sha256": "fd81f2b049c9166e3be322b824b983556641efc31043561c71494572883bc490",
+          "source_git_blob": "e794b1e0a800961ad77727a85614eb9de348f200"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "N": 64,
+  "x0": 32,
+  "c_phys": 1,
+  "r0": 3.0,
+  "H": 12,
+  "leak_reach": 8,
+  "thm1_detail": {
+    "contractive": {
+      "L": 0.816,
+      "min_slack": 0.0,
+      "EH": 0.0352,
+      "bound_H": 0.1234
+    },
+    "marginal": {
+      "L": 1.02,
+      "min_slack": 0.0,
+      "EH": 0.3411,
+      "bound_H": 1.3745
+    },
+    "expansive": {
+      "L": 1.428,
+      "min_slack": 0.0,
+      "EH": 19.8651,
+      "bound_H": 73.2061
+    }
+  },
+  "thm2_detail": {
+    "contractive": {
+      "L": 0.816,
+      "lam_abs": 0.20064,
+      "beta": 0.8137,
+      "min_slack": 0.0,
+      "QH": 0.01517
+    },
+    "marginal": {
+      "L": 1.02,
+      "lam_abs": 0.2508,
+      "beta": 1.01712,
+      "min_slack": 0.0,
+      "QH": 0.047028
+    },
+    "expansive": {
+      "L": 1.428,
+      "lam_abs": 0.35112,
+      "beta": 1.42397,
+      "min_slack": 0.0,
+      "QH": 2.867655
+    }
+  },
+  "frac_detail": {
+    "contractive": {
+      "L": 0.816,
+      "leak": 0.02,
+      "frac_first": 0.03737,
+      "frac_last": 0.43072,
+      "frac_max": 0.43072
+    },
+    "marginal": {
+      "L": 1.02,
+      "leak": 0.02,
+      "frac_first": 0.03375,
+      "frac_last": 0.13789,
+      "frac_max": 0.13789
+    },
+    "expansive": {
+      "L": 1.428,
+      "leak": 0.02,
+      "frac_first": 0.03272,
+      "frac_last": 0.14436,
+      "frac_max": 0.14436
+    }
+  },
+  "scale_blind_max_diff": 2.7755575615628914e-17,
+  "auroc_L": 1.0,
+  "auroc_leak_fraction": 0.05555555555555555,
+  "checks": [
+    {
+      "name": "Theorem 1 (magnitude bound holds)",
+      "pass": true,
+      "detail": {
+        "contractive": {
+          "L": 0.816,
+          "min_slack": 0.0,
+          "EH": 0.0352,
+          "bound_H": 0.1234
+        },
+        "marginal": {
+          "L": 1.02,
+          "min_slack": 0.0,
+          "EH": 0.3411,
+          "bound_H": 1.3745
+        },
+        "expansive": {
+          "L": 1.428,
+          "min_slack": 0.0,
+          "EH": 19.8651,
+          "bound_H": 73.2061
+        }
+      }
+    },
+    {
+      "name": "Theorem 2 (out-of-cone bound holds)",
+      "pass": true,
+      "detail": {
+        "contractive": {
+          "L": 0.816,
+          "lam_abs": 0.20064,
+          "beta": 0.8137,
+          "min_slack": 0.0,
+          "QH": 0.01517
+        },
+        "marginal": {
+          "L": 1.02,
+          "lam_abs": 0.2508,
+          "beta": 1.01712,
+          "min_slack": 0.0,
+          "QH": 0.047028
+        },
+        "expansive": {
+          "L": 1.428,
+          "lam_abs": 0.35112,
+          "beta": 1.42397,
+          "min_slack": 0.0,
+          "QH": 2.867655
+        }
+      }
+    },
+    {
+      "name": "Regime claim (frac bounded for L>1; leak-dominated for L<=1)",
+      "pass": true,
+      "detail": {
+        "contractive": {
+          "L": 0.816,
+          "leak": 0.02,
+          "frac_first": 0.03737,
+          "frac_last": 0.43072,
+          "frac_max": 0.43072
+        },
+        "expansive": {
+          "L": 1.428,
+          "leak": 0.02,
+          "frac_first": 0.03272,
+          "frac_last": 0.14436,
+          "frac_max": 0.14436
+        }
+      }
+    },
+    {
+      "name": "Scale-blindness (fraction invariant under magnitude scaling)",
+      "pass": true,
+      "detail": {
+        "max_abs_diff": 2.7755575615628914e-17,
+        "note": "a fraction cannot rank a magnitude/blow-up event -> AUROC(Lambda)~chance"
+      }
+    },
+    {
+      "name": "AUROC asymmetry (L ranks blow-up; leakage fraction at/below chance)",
+      "pass": true,
+      "detail": {
+        "auroc_L": 1.0,
+        "auroc_leak_fraction": 0.056,
+        "gap": 0.944,
+        "theory": "L->1 ranks magnitude; leakage fraction scale-free & anti-predictive",
+        "empirical_repo": {
+          "jac_rho_auroc": 0.988,
+          "lambda_1K_auroc": 0.213
+        }
+      }
+    }
+  ],
+  "all_pass": true
+}

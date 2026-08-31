@@ -1,0 +1,42 @@
+{
+  "title": "TEST 2 -- Does accuracy depend on acausal (out-of-cone) information?",
+  "date": "2026-06-17",
+  "design": "Causal-masking: for each target, set all input outside the 6h physical cone to climatology, re-run one step, measure forecast degradation at the target. A causal model is invariant (causal floor = 0); reliance on out-of-cone input shows up as degradation.",
+  "physical_cones": {
+    "gravity_wave_6h_km": 6480.0,
+    "antipode_km": 20015.0
+  },
+  "synthetic_control": {
+    "pde": "1D advection, exact step = roll-by-1, EXACT ground truth, zero solver leakage",
+    "physical_cone_radius_cells": 4,
+    "in_distribution_J12": {
+      "FNO_leaky": {
+        "full_rmse": 0.00031553545035472355,
+        "masked_rmse": 0.1309073529219883,
+        "degradation_x": 414.873678297709
+      },
+      "CNN_causal": {
+        "full_rmse": 0.0005468171976901881,
+        "masked_rmse": 0.0005468172253121059,
+        "degradation_x": 1.0000000505139888
+      }
+    },
+    "interpretation": "At the physical cone radius (=CNN receptive radius), masking physically-forbidden input degrades the FNO one-step skill by ~415x (3.2e-04 -> 1.3e-01, i.e. RMSE jumps to ~13% of field std) while leaving the CNN EXACTLY unchanged (5.5e-04 -> 5.5e-04). The FNO needs out-of-cone input to be accurate; the causal CNN does not. Robust across zero / in-cone-mean / periodic-extend fills (CNN identical to 1e-12 in all).",
+    "ood_J24_caveat": "OOD, the FNO is already broken (full RMSE 0.40) so masking adds little; the clean dependence signal is in-distribution where the FNO is otherwise highly accurate."
+  },
+  "real_model_fourcastnet": {
+    "metric": "No external +6h ERA5 truth in cache, so we measure forecast CHANGE at target from masking out-of-cone input (necessary condition for skill-reliance) + remote-only reconstruction. Numerical control = 0 exactly.",
+    "median_delta_T_K": 6.6073620319366455,
+    "max_delta_T_K": 12.189690589904785,
+    "median_delta_T_as_frac_of_global_rmse": 2.8419477760933662,
+    "median_remote_only_reconstruction_fraction": 0.7989410930976617,
+    "confound_honest": "Masking 97%% of the globe to flat climatology is itself a large out-of-distribution input, so the absolute delta_T magnitude is inflated by OOD-input shock, not purely by needed information. The clean causal contrast is the synthetic CNN, which is provably immune to ANY out-of-cone input change (delta=0). The remote-only reconstruction (~80%%) is the cleaner real-model evidence: the +6h target forecast is largely reproducible from PURELY forbidden remote input."
+  },
+  "verdict": {
+    "synthetic_dependence_real": true,
+    "cnn_causal_invariant": true,
+    "real_model_necessary_condition_met": true,
+    "classification": "real-consequence",
+    "headline": "ACCURACY DEPENDS ON ACAUSAL INFORMATION (architecture-class result). In the exact-truth synthetic, masking physically-forbidden out-of-cone input degrades the leaky FNO one-step skill by ~415x while leaving the causal CNN EXACTLY unchanged -- the FNO BUILDS its accuracy on out-of-cone shortcuts; the CNN does not need them. On the real deployed FourCastNet the same masking changes the +6h target forecast by a median 6.6 K (2.8x the global t2m wRMSE) and a remote-only input reconstructs ~80% of the target forecast signal -- consistent with genuine reliance on forbidden remote information (magnitude inflated by OOD-input shock; the clean causal floor is the CNN). This is a concrete WHY-IT-IS-WRONG: the accuracy is partly a spurious non-local shortcut that has no causal basis and will not generalize where those correlations break."
+  }
+}

@@ -1,0 +1,617 @@
+{
+  "purpose": "Test whether FourCastNet's measured acausal reach has a real, validation-invisible CONSEQUENCE: does acausality CAUSE a forecast error invisible to global RMSE?",
+  "model": "FourCastNet v1 (AFNO), nvidia/fourcastnet1, MPS",
+  "cone_radius_6h_km": 6480.0,
+  "antipode_km": 20015.086796020572,
+  "numerical_control_note": "deterministic eval; M(x)-M(x)=0 exactly (see real_emulator_audit.json) so every reported change is real model influence, not float noise.",
+  "numerical_control_t2m_max_K": 0.0,
+  "test1_causal_ablation": {
+    "2020-01-01T00 (winter)": {
+      "N.Pacific(30N,200E)": {
+        "ic": "2020-01-01T00 (winter)",
+        "target_latlon": [
+          30.0,
+          200.0
+        ],
+        "target_patch_radius_km": 500.0,
+        "cone_radius_km": 6480.0,
+        "disconnected_region": {
+          "antipode_center_latlon": [
+            -30.0,
+            20.0
+          ],
+          "min_distance_D_to_T_km": 7480.024855539036,
+          "area_fraction_of_globe": 0.6931753158569336,
+          "causally_disconnected": true
+        },
+        "ablation_all_channels": {
+          "delta_T_wrmse_K": 3.0222432613372803,
+          "delta_T_max_K": 8.948333740234375,
+          "delta_global_wrmse_K": 21.13275146484375,
+          "causal_floor_K": 0.0,
+          "interpretation": "Physics forbids any change at T from ablating a causally-disconnected region at 6h. Nonzero delta_T = forbidden remote information used."
+        },
+        "plausible_remote_error": {
+          "error_amplitude_K": 2.0,
+          "error_note": "fixed 2 K plausible analysis error (NOT sigma-scaled; see code)",
+          "error_core_radius_km": 2000.0,
+          "error_site_min_dist_to_T_km": 18015.11971506085,
+          "contamination_T_wrmse_K": 0.006111124996095896,
+          "contamination_T_max_K": 0.017333984375,
+          "contamination_vs_error_amplitude": [
+            {
+              "error_K": 1.0,
+              "contamination_T_wrmse_K": 0.002756585367023945,
+              "contamination_per_K": 0.002756585367023945
+            },
+            {
+              "error_K": 2.0,
+              "contamination_T_wrmse_K": 0.006111124996095896,
+              "contamination_per_K": 0.003055562498047948
+            },
+            {
+              "error_K": 3.0,
+              "contamination_T_wrmse_K": 0.00998174212872982,
+              "contamination_per_K": 0.0033272473762432733
+            }
+          ],
+          "contamination_linear_in_plausible_band": true,
+          "local_change_at_error_site_K": 1.315111517906189,
+          "global_t2m_wrmse_shift_K": 0.21844267845153809,
+          "forbidden_change_energy_frac_outside_err_cone": 0.09638113528490067,
+          "target_share_of_forbidden_energy": 1.2422443433024455e-05,
+          "causal_floor_K": 0.0
+        },
+        "positive_control_in_cone_error": {
+          "error_amplitude_K": 2.0,
+          "error_site_min_dist_to_T_km": 0.0008407211404070944,
+          "causal_change_T_wrmse_K": 0.023402398452162743,
+          "acausal_attenuation_ratio": 0.26113242232789746,
+          "note": "Same 2 K error placed INSIDE the 6480 km cone; the model SHOULD respond. Ratio = remote(acausal)/near(causal) change at T -- quantifies how strongly the forbidden channel leaks relative to the allowed one at the same amplitude."
+        }
+      },
+      "Equator(0,0E)": {
+        "ic": "2020-01-01T00 (winter)",
+        "target_latlon": [
+          0.0,
+          0.0
+        ],
+        "target_patch_radius_km": 500.0,
+        "cone_radius_km": 6480.0,
+        "disconnected_region": {
+          "antipode_center_latlon": [
+            -0.0,
+            180.0
+          ],
+          "min_distance_D_to_T_km": 7480.367769000152,
+          "area_fraction_of_globe": 0.6931836009025574,
+          "causally_disconnected": true
+        },
+        "ablation_all_channels": {
+          "delta_T_wrmse_K": 4.339733600616455,
+          "delta_T_max_K": 12.7984619140625,
+          "delta_global_wrmse_K": 26.358057022094727,
+          "causal_floor_K": 0.0,
+          "interpretation": "Physics forbids any change at T from ablating a causally-disconnected region at 6h. Nonzero delta_T = forbidden remote information used."
+        },
+        "plausible_remote_error": {
+          "error_amplitude_K": 2.0,
+          "error_note": "fixed 2 K plausible analysis error (NOT sigma-scaled; see code)",
+          "error_core_radius_km": 2000.0,
+          "error_site_min_dist_to_T_km": 18015.586849652333,
+          "contamination_T_wrmse_K": 0.005341161508113146,
+          "contamination_T_max_K": 0.014892578125,
+          "contamination_vs_error_amplitude": [
+            {
+              "error_K": 1.0,
+              "contamination_T_wrmse_K": 0.0027019681874662638,
+              "contamination_per_K": 0.0027019681874662638
+            },
+            {
+              "error_K": 2.0,
+              "contamination_T_wrmse_K": 0.005341161508113146,
+              "contamination_per_K": 0.002670580754056573
+            },
+            {
+              "error_K": 3.0,
+              "contamination_T_wrmse_K": 0.008615515194833279,
+              "contamination_per_K": 0.0028718383982777596
+            }
+          ],
+          "contamination_linear_in_plausible_band": true,
+          "local_change_at_error_site_K": 1.1303800344467163,
+          "global_t2m_wrmse_shift_K": 0.17962805926799774,
+          "forbidden_change_energy_frac_outside_err_cone": 0.016135329380631447,
+          "target_share_of_forbidden_energy": 8.336931932717562e-05,
+          "causal_floor_K": 0.0
+        },
+        "positive_control_in_cone_error": {
+          "error_amplitude_K": 2.0,
+          "error_site_min_dist_to_T_km": 9.282842226643329e-05,
+          "causal_change_T_wrmse_K": 0.020753545686602592,
+          "acausal_attenuation_ratio": 0.2573613968798171,
+          "note": "Same 2 K error placed INSIDE the 6480 km cone; the model SHOULD respond. Ratio = remote(acausal)/near(causal) change at T -- quantifies how strongly the forbidden channel leaks relative to the allowed one at the same amplitude."
+        }
+      },
+      "Europe(50N,10E)": {
+        "ic": "2020-01-01T00 (winter)",
+        "target_latlon": [
+          50.0,
+          10.0
+        ],
+        "target_patch_radius_km": 500.0,
+        "cone_radius_km": 6480.0,
+        "disconnected_region": {
+          "antipode_center_latlon": [
+            -50.0,
+            190.0
+          ],
+          "min_distance_D_to_T_km": 7480.034611181302,
+          "area_fraction_of_globe": 0.6931799054145813,
+          "causally_disconnected": true
+        },
+        "ablation_all_channels": {
+          "delta_T_wrmse_K": 5.469486236572266,
+          "delta_T_max_K": 11.016021728515625,
+          "delta_global_wrmse_K": 21.080078125,
+          "causal_floor_K": 0.0,
+          "interpretation": "Physics forbids any change at T from ablating a causally-disconnected region at 6h. Nonzero delta_T = forbidden remote information used."
+        },
+        "plausible_remote_error": {
+          "error_amplitude_K": 2.0,
+          "error_note": "fixed 2 K plausible analysis error (NOT sigma-scaled; see code)",
+          "error_core_radius_km": 2000.0,
+          "error_site_min_dist_to_T_km": 18015.170786177234,
+          "contamination_T_wrmse_K": 0.011334285140037537,
+          "contamination_T_max_K": 0.033447265625,
+          "contamination_vs_error_amplitude": [
+            {
+              "error_K": 1.0,
+              "contamination_T_wrmse_K": 0.005475946702063084,
+              "contamination_per_K": 0.005475946702063084
+            },
+            {
+              "error_K": 2.0,
+              "contamination_T_wrmse_K": 0.011334285140037537,
+              "contamination_per_K": 0.005667142570018768
+            },
+            {
+              "error_K": 3.0,
+              "contamination_T_wrmse_K": 0.01744634099304676,
+              "contamination_per_K": 0.005815446997682254
+            }
+          ],
+          "contamination_linear_in_plausible_band": true,
+          "local_change_at_error_site_K": 1.4371721744537354,
+          "global_t2m_wrmse_shift_K": 0.22715438902378082,
+          "forbidden_change_energy_frac_outside_err_cone": 0.009567697532474995,
+          "target_share_of_forbidden_energy": 0.00039732170989736915,
+          "causal_floor_K": 0.0
+        },
+        "positive_control_in_cone_error": {
+          "error_amplitude_K": 2.0,
+          "error_site_min_dist_to_T_km": 8.779949738992568e-05,
+          "causal_change_T_wrmse_K": 0.7480666637420654,
+          "acausal_attenuation_ratio": 0.015151437284131694,
+          "note": "Same 2 K error placed INSIDE the 6480 km cone; the model SHOULD respond. Ratio = remote(acausal)/near(causal) change at T -- quantifies how strongly the forbidden channel leaks relative to the allowed one at the same amplitude."
+        }
+      }
+    },
+    "2020-07-15T12 (summer)": {
+      "N.Pacific(30N,200E)": {
+        "ic": "2020-07-15T12 (summer)",
+        "target_latlon": [
+          30.0,
+          200.0
+        ],
+        "target_patch_radius_km": 500.0,
+        "cone_radius_km": 6480.0,
+        "disconnected_region": {
+          "antipode_center_latlon": [
+            -30.0,
+            20.0
+          ],
+          "min_distance_D_to_T_km": 7480.024855539036,
+          "area_fraction_of_globe": 0.6931753158569336,
+          "causally_disconnected": true
+        },
+        "ablation_all_channels": {
+          "delta_T_wrmse_K": 4.287079334259033,
+          "delta_T_max_K": 17.201385498046875,
+          "delta_global_wrmse_K": 23.2070369720459,
+          "causal_floor_K": 0.0,
+          "interpretation": "Physics forbids any change at T from ablating a causally-disconnected region at 6h. Nonzero delta_T = forbidden remote information used."
+        },
+        "plausible_remote_error": {
+          "error_amplitude_K": 2.0,
+          "error_note": "fixed 2 K plausible analysis error (NOT sigma-scaled; see code)",
+          "error_core_radius_km": 2000.0,
+          "error_site_min_dist_to_T_km": 18015.11971506085,
+          "contamination_T_wrmse_K": 0.003767556045204401,
+          "contamination_T_max_K": 0.011871337890625,
+          "contamination_vs_error_amplitude": [
+            {
+              "error_K": 1.0,
+              "contamination_T_wrmse_K": 0.0019301511347293854,
+              "contamination_per_K": 0.0019301511347293854
+            },
+            {
+              "error_K": 2.0,
+              "contamination_T_wrmse_K": 0.003767556045204401,
+              "contamination_per_K": 0.0018837780226022005
+            },
+            {
+              "error_K": 3.0,
+              "contamination_T_wrmse_K": 0.00464213639497757,
+              "contamination_per_K": 0.0015473787983258565
+            }
+          ],
+          "contamination_linear_in_plausible_band": true,
+          "local_change_at_error_site_K": 1.395492672920227,
+          "global_t2m_wrmse_shift_K": 0.2205425649881363,
+          "forbidden_change_energy_frac_outside_err_cone": 0.006394228897988796,
+          "target_share_of_forbidden_energy": 6.981972546782345e-05,
+          "causal_floor_K": 0.0
+        },
+        "positive_control_in_cone_error": {
+          "error_amplitude_K": 2.0,
+          "error_site_min_dist_to_T_km": 0.0008407211404070944,
+          "causal_change_T_wrmse_K": 0.014743639156222343,
+          "acausal_attenuation_ratio": 0.2555377275097212,
+          "note": "Same 2 K error placed INSIDE the 6480 km cone; the model SHOULD respond. Ratio = remote(acausal)/near(causal) change at T -- quantifies how strongly the forbidden channel leaks relative to the allowed one at the same amplitude."
+        }
+      },
+      "Equator(0,0E)": {
+        "ic": "2020-07-15T12 (summer)",
+        "target_latlon": [
+          0.0,
+          0.0
+        ],
+        "target_patch_radius_km": 500.0,
+        "cone_radius_km": 6480.0,
+        "disconnected_region": {
+          "antipode_center_latlon": [
+            -0.0,
+            180.0
+          ],
+          "min_distance_D_to_T_km": 7480.367769000152,
+          "area_fraction_of_globe": 0.6931836009025574,
+          "causally_disconnected": true
+        },
+        "ablation_all_channels": {
+          "delta_T_wrmse_K": 5.81621789932251,
+          "delta_T_max_K": 17.2061767578125,
+          "delta_global_wrmse_K": 26.126697540283203,
+          "causal_floor_K": 0.0,
+          "interpretation": "Physics forbids any change at T from ablating a causally-disconnected region at 6h. Nonzero delta_T = forbidden remote information used."
+        },
+        "plausible_remote_error": {
+          "error_amplitude_K": 2.0,
+          "error_note": "fixed 2 K plausible analysis error (NOT sigma-scaled; see code)",
+          "error_core_radius_km": 2000.0,
+          "error_site_min_dist_to_T_km": 18015.586849652333,
+          "contamination_T_wrmse_K": 0.00569907994940877,
+          "contamination_T_max_K": 0.016265869140625,
+          "contamination_vs_error_amplitude": [
+            {
+              "error_K": 1.0,
+              "contamination_T_wrmse_K": 0.0030545780900865793,
+              "contamination_per_K": 0.0030545780900865793
+            },
+            {
+              "error_K": 2.0,
+              "contamination_T_wrmse_K": 0.00569907994940877,
+              "contamination_per_K": 0.002849539974704385
+            },
+            {
+              "error_K": 3.0,
+              "contamination_T_wrmse_K": 0.0077322074212133884,
+              "contamination_per_K": 0.0025774024737377963
+            }
+          ],
+          "contamination_linear_in_plausible_band": true,
+          "local_change_at_error_site_K": 0.9708460569381714,
+          "global_t2m_wrmse_shift_K": 0.15489982068538666,
+          "forbidden_change_energy_frac_outside_err_cone": 0.02523024193942547,
+          "target_share_of_forbidden_energy": 8.162952872226015e-05,
+          "causal_floor_K": 0.0
+        },
+        "positive_control_in_cone_error": {
+          "error_amplitude_K": 2.0,
+          "error_site_min_dist_to_T_km": 9.282842226643329e-05,
+          "causal_change_T_wrmse_K": 0.006964617408812046,
+          "acausal_attenuation_ratio": 0.8182904551509113,
+          "note": "Same 2 K error placed INSIDE the 6480 km cone; the model SHOULD respond. Ratio = remote(acausal)/near(causal) change at T -- quantifies how strongly the forbidden channel leaks relative to the allowed one at the same amplitude."
+        }
+      },
+      "Europe(50N,10E)": {
+        "ic": "2020-07-15T12 (summer)",
+        "target_latlon": [
+          50.0,
+          10.0
+        ],
+        "target_patch_radius_km": 500.0,
+        "cone_radius_km": 6480.0,
+        "disconnected_region": {
+          "antipode_center_latlon": [
+            -50.0,
+            190.0
+          ],
+          "min_distance_D_to_T_km": 7480.034611181302,
+          "area_fraction_of_globe": 0.6931799054145813,
+          "causally_disconnected": true
+        },
+        "ablation_all_channels": {
+          "delta_T_wrmse_K": 5.26373815536499,
+          "delta_T_max_K": 10.00543212890625,
+          "delta_global_wrmse_K": 20.279735565185547,
+          "causal_floor_K": 0.0,
+          "interpretation": "Physics forbids any change at T from ablating a causally-disconnected region at 6h. Nonzero delta_T = forbidden remote information used."
+        },
+        "plausible_remote_error": {
+          "error_amplitude_K": 2.0,
+          "error_note": "fixed 2 K plausible analysis error (NOT sigma-scaled; see code)",
+          "error_core_radius_km": 2000.0,
+          "error_site_min_dist_to_T_km": 18015.170786177234,
+          "contamination_T_wrmse_K": 0.02988569065928459,
+          "contamination_T_max_K": 0.06829833984375,
+          "contamination_vs_error_amplitude": [
+            {
+              "error_K": 1.0,
+              "contamination_T_wrmse_K": 0.011846768669784069,
+              "contamination_per_K": 0.011846768669784069
+            },
+            {
+              "error_K": 2.0,
+              "contamination_T_wrmse_K": 0.02988569065928459,
+              "contamination_per_K": 0.014942845329642296
+            },
+            {
+              "error_K": 3.0,
+              "contamination_T_wrmse_K": 0.05155091732740402,
+              "contamination_per_K": 0.017183639109134674
+            }
+          ],
+          "contamination_linear_in_plausible_band": true,
+          "local_change_at_error_site_K": 1.146914005279541,
+          "global_t2m_wrmse_shift_K": 0.18291623890399933,
+          "forbidden_change_energy_frac_outside_err_cone": 0.02215263992547989,
+          "target_share_of_forbidden_energy": 0.0018399256514385343,
+          "causal_floor_K": 0.0
+        },
+        "positive_control_in_cone_error": {
+          "error_amplitude_K": 2.0,
+          "error_site_min_dist_to_T_km": 8.779949738992568e-05,
+          "causal_change_T_wrmse_K": 0.4685835838317871,
+          "acausal_attenuation_ratio": 0.06377878289055257,
+          "note": "Same 2 K error placed INSIDE the 6480 km cone; the model SHOULD respond. Ratio = remote(acausal)/near(causal) change at T -- quantifies how strongly the forbidden channel leaks relative to the allowed one at the same amplitude."
+        }
+      }
+    }
+  },
+  "test2_spurious_teleconnection": {
+    "2020-01-01T00 (winter)": {
+      "ENSO_Pacific->N.Atlantic": {
+        "ic": "2020-01-01T00 (winter)",
+        "A_latlon": [
+          0.0,
+          200.0
+        ],
+        "B_latlon": [
+          55.0,
+          340.0
+        ],
+        "distance_AB_km": 12905.800350436108,
+        "cone_radius_per_step_km": 6480.0,
+        "steps_until_physical_cone_reaches_B": 2,
+        "injected_anomaly_peak_K": 3.0,
+        "era5_natural_variability_at_B_K": 1.2220854759216309,
+        "per_step": [
+          {
+            "step": 1,
+            "elapsed_hours": 6,
+            "cone_radius_km": 6480.0,
+            "cone_has_reached_B": false,
+            "signal_at_B_wrmse_K": 0.00824926421046257,
+            "signal_at_B_max_K": 0.014482975006103516,
+            "is_premature": true
+          },
+          {
+            "step": 2,
+            "elapsed_hours": 12,
+            "cone_radius_km": 12960.0,
+            "cone_has_reached_B": true,
+            "signal_at_B_wrmse_K": 0.0073997401632368565,
+            "signal_at_B_max_K": 0.01262807846069336,
+            "is_premature": false
+          },
+          {
+            "step": 3,
+            "elapsed_hours": 18,
+            "cone_radius_km": 19440.0,
+            "cone_has_reached_B": true,
+            "signal_at_B_wrmse_K": 0.006843951065093279,
+            "signal_at_B_max_K": 0.012575149536132812,
+            "is_premature": false
+          }
+        ],
+        "premature_max_signal_at_B_K": 0.00824926421046257,
+        "premature_signal_exists": true
+      },
+      "Sahara->S.Ocean": {
+        "ic": "2020-01-01T00 (winter)",
+        "A_latlon": [
+          20.0,
+          15.0
+        ],
+        "B_latlon": [
+          -55.0,
+          150.0
+        ],
+        "distance_AB_km": 14610.800756239316,
+        "cone_radius_per_step_km": 6480.0,
+        "steps_until_physical_cone_reaches_B": 3,
+        "injected_anomaly_peak_K": 3.0,
+        "era5_natural_variability_at_B_K": 2.1059000492095947,
+        "per_step": [
+          {
+            "step": 1,
+            "elapsed_hours": 6,
+            "cone_radius_km": 6480.0,
+            "cone_has_reached_B": false,
+            "signal_at_B_wrmse_K": 0.007601066492497921,
+            "signal_at_B_max_K": 0.012209892272949219,
+            "is_premature": true
+          },
+          {
+            "step": 2,
+            "elapsed_hours": 12,
+            "cone_radius_km": 12960.0,
+            "cone_has_reached_B": false,
+            "signal_at_B_wrmse_K": 0.005960789974778891,
+            "signal_at_B_max_K": 0.010762214660644531,
+            "is_premature": true
+          },
+          {
+            "step": 3,
+            "elapsed_hours": 18,
+            "cone_radius_km": 19440.0,
+            "cone_has_reached_B": true,
+            "signal_at_B_wrmse_K": 0.0049885292537510395,
+            "signal_at_B_max_K": 0.009865760803222656,
+            "is_premature": false
+          }
+        ],
+        "premature_max_signal_at_B_K": 0.007601066492497921,
+        "premature_signal_exists": true
+      }
+    },
+    "2020-07-15T12 (summer)": {
+      "ENSO_Pacific->N.Atlantic": {
+        "ic": "2020-07-15T12 (summer)",
+        "A_latlon": [
+          0.0,
+          200.0
+        ],
+        "B_latlon": [
+          55.0,
+          340.0
+        ],
+        "distance_AB_km": 12905.800350436108,
+        "cone_radius_per_step_km": 6480.0,
+        "steps_until_physical_cone_reaches_B": 2,
+        "injected_anomaly_peak_K": 3.0,
+        "era5_natural_variability_at_B_K": 0.8317326307296753,
+        "per_step": [
+          {
+            "step": 1,
+            "elapsed_hours": 6,
+            "cone_radius_km": 6480.0,
+            "cone_has_reached_B": false,
+            "signal_at_B_wrmse_K": 0.00947756040841341,
+            "signal_at_B_max_K": 0.015142440795898438,
+            "is_premature": true
+          },
+          {
+            "step": 2,
+            "elapsed_hours": 12,
+            "cone_radius_km": 12960.0,
+            "cone_has_reached_B": true,
+            "signal_at_B_wrmse_K": 0.00952797569334507,
+            "signal_at_B_max_K": 0.014739036560058594,
+            "is_premature": false
+          },
+          {
+            "step": 3,
+            "elapsed_hours": 18,
+            "cone_radius_km": 19440.0,
+            "cone_has_reached_B": true,
+            "signal_at_B_wrmse_K": 0.008823529817163944,
+            "signal_at_B_max_K": 0.012630462646484375,
+            "is_premature": false
+          }
+        ],
+        "premature_max_signal_at_B_K": 0.00947756040841341,
+        "premature_signal_exists": true
+      },
+      "Sahara->S.Ocean": {
+        "ic": "2020-07-15T12 (summer)",
+        "A_latlon": [
+          20.0,
+          15.0
+        ],
+        "B_latlon": [
+          -55.0,
+          150.0
+        ],
+        "distance_AB_km": 14610.800756239316,
+        "cone_radius_per_step_km": 6480.0,
+        "steps_until_physical_cone_reaches_B": 3,
+        "injected_anomaly_peak_K": 3.0,
+        "era5_natural_variability_at_B_K": 1.882061243057251,
+        "per_step": [
+          {
+            "step": 1,
+            "elapsed_hours": 6,
+            "cone_radius_km": 6480.0,
+            "cone_has_reached_B": false,
+            "signal_at_B_wrmse_K": 0.010150477290153503,
+            "signal_at_B_max_K": 0.015434026718139648,
+            "is_premature": true
+          },
+          {
+            "step": 2,
+            "elapsed_hours": 12,
+            "cone_radius_km": 12960.0,
+            "cone_has_reached_B": false,
+            "signal_at_B_wrmse_K": 0.007583064492791891,
+            "signal_at_B_max_K": 0.011882781982421875,
+            "is_premature": true
+          },
+          {
+            "step": 3,
+            "elapsed_hours": 18,
+            "cone_radius_km": 19440.0,
+            "cone_has_reached_B": true,
+            "signal_at_B_wrmse_K": 0.0058096544817090034,
+            "signal_at_B_max_K": 0.00953209400177002,
+            "is_premature": false
+          }
+        ],
+        "premature_max_signal_at_B_K": 0.010150477290153503,
+        "premature_signal_exists": true
+      }
+    }
+  },
+  "test3_global_skill": {
+    "z500_+6h_wRMSE_m": 24.394424438476562,
+    "z500_persistence_wRMSE_m": 23.09310531616211,
+    "t2m_+6h_wRMSE_K": 2.324941396713257,
+    "t2m_persistence_wRMSE_K": 2.526639461517334,
+    "beats_persistence": false,
+    "note": "Model produces skillful in-distribution 6h forecasts: z500 +6h wRMSE=24.4 m (matches published FourCastNet ~25-50 m short-lead benchmark; 6h persistence is 23.1 m, i.e. model is on par at the trivial 6h horizon where z500 barely moves) and t2m +6h wRMSE=2.32 K BEATS persistence (2.53 K). The model is correctly loaded and operationally valid -- the cone audit flags an acausal regime in a model that PASSES standard validation.",
+    "t2m_beats_persistence": true
+  },
+  "verdict": {
+    "ablation_max_delta_T_K": 5.81621789932251,
+    "remote_error_max_contamination_T_K": 0.02988569065928459,
+    "remote_error_median_contamination_T_K": 0.005905102472752333,
+    "remote_error_max_global_t2m_shift_K": 0.22715438902378082,
+    "median_forbidden_change_energy_frac_outside_err_cone": 0.019143984653055668,
+    "median_acausal_attenuation_remote_over_incone": 0.2564495621947691,
+    "spurious_teleconnection_max_premature_K": 0.010150477290153503,
+    "global_t2m_wRMSE_K": 2.324941396713257,
+    "contamination_as_frac_of_global_rmse": 0.012854384502565807,
+    "invisibility_argument": "The model PASSES standard validation (t2m +6h wRMSE 2.32 K, beats persistence); that protocol never probes causal locality, so the acausal channel is invisible to it. The remote error DOES move the aggregate global RMSE, but that shift is dominated by the legitimate response at the error site -- no forecaster could attribute the 0.030 K contamination at the target to a source ~18000 km away. The failure is invisible as a CAUSAL-ATTRIBUTION error, which is exactly what matters for interpreting teleconnections and event attribution.",
+    "acausal_consequence_real": true,
+    "consequence_matters_for_forecaster": false,
+    "headline": "ACAUSAL REACH IS REAL BUT BENIGN. Ablating / corrupting a causally-disconnected region does change the forecast at the target (causal floor is 0), demonstrating the model uses physically-forbidden remote information, BUT the contamination from a plausible remote error is small (max 0.030 K, 1.29% of the 2.32 K global t2m wRMSE). No demonstrable forecast harm; this honestly caps the claim."
+  },
+  "figure_fields_npz": "results/acausal_consequence_fields.npz",
+  "figure_worst_case": {
+    "ic": "2020-07-15T12 (summer)",
+    "target": "Europe(50N,10E)",
+    "contamination_T_K": 0.02988569065928459
+  },
+  "runtime_seconds": 45.5
+}

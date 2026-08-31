@@ -1,0 +1,90 @@
+{
+  "pde": "2D linear advection (torus, exact roll solver, leakage floor 0)",
+  "grid": 64,
+  "modes": 16,
+  "width": 32,
+  "n_layers": 4,
+  "m": 4,
+  "epochs": 220,
+  "seeds": [
+    2,
+    3
+  ],
+  "device": "mps",
+  "solver_out_of_cone_leak": 0.0029062305693514645,
+  "rows": [
+    {
+      "kind": "fno_global",
+      "seed": 2,
+      "val_mse": 1.7996657106778002e-06,
+      "ood_mse": 0.6612703204154968,
+      "out_of_cone_leak": 0.053050873801112175,
+      "n_params": 2103617
+    },
+    {
+      "kind": "fno_global",
+      "seed": 3,
+      "val_mse": 1.8829791770258453e-06,
+      "ood_mse": 0.6729938387870789,
+      "out_of_cone_leak": 0.05608716560527682,
+      "n_params": 2103617
+    },
+    {
+      "kind": "fno_tapered",
+      "seed": 2,
+      "val_mse": 2.1933901734882966e-06,
+      "ood_mse": 0.6791317462921143,
+      "out_of_cone_leak": 0.04890362359583378,
+      "n_params": 2103617
+    },
+    {
+      "kind": "fno_tapered",
+      "seed": 3,
+      "val_mse": 2.456601123412838e-06,
+      "ood_mse": 0.6376131772994995,
+      "out_of_cone_leak": 0.041405029594898224,
+      "n_params": 2103617
+    },
+    {
+      "kind": "local_cnn",
+      "seed": 2,
+      "val_mse": 5.4121082939673215e-06,
+      "ood_mse": 0.027159826830029488,
+      "out_of_cone_leak": 0.002863933623302728,
+      "n_params": 152065
+    },
+    {
+      "kind": "local_cnn",
+      "seed": 3,
+      "val_mse": 4.710929715656675e-06,
+      "ood_mse": 0.03499048948287964,
+      "out_of_cone_leak": 0.0028743765433318913,
+      "n_params": 152065
+    }
+  ],
+  "summary": [
+    {
+      "kind": "fno_global",
+      "val_mse": 1.8413224438518228e-06,
+      "ood_mse": 0.6671320796012878,
+      "leak": 0.0545690197031945,
+      "leak_corr": 0.051662789133843035
+    },
+    {
+      "kind": "fno_tapered",
+      "val_mse": 2.3249956484505674e-06,
+      "ood_mse": 0.6583724617958069,
+      "leak": 0.045154326595366,
+      "leak_corr": 0.04224809602601454
+    },
+    {
+      "kind": "local_cnn",
+      "val_mse": 5.0615190048119985e-06,
+      "ood_mse": 0.031075158156454563,
+      "leak": 0.0028691550833173096,
+      "leak_corr": -3.707548603415489e-05
+    }
+  ],
+  "verdict": "MITIGATION WORKS: local fix cuts out-of-cone leakage +0.052->-0.000; in-dist MSE 5.1e-06 vs 1.8e-06 (both <<1); OOD 0.031 vs 0.667 (BETTER)",
+  "runtime_s": 6775.4
+}

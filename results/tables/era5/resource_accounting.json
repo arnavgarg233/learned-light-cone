@@ -1,0 +1,38 @@
+{
+  "blocks": 4,
+  "channels": 38,
+  "complex_mac_real_flops": 8,
+  "global": {
+    "complex_entries": 18874368,
+    "fft_flops": 43253760,
+    "forward_flops": 224133120,
+    "lift_projection_real_macs": 14942208,
+    "real_parameters": 37757126,
+    "spectral_complex_macs": 18874368,
+    "tensor_elements": 18882758,
+    "width": 96
+  },
+  "grid": [
+    32,
+    64
+  ],
+  "local": [
+    {
+      "forward_flops": 1388838912,
+      "real_parameters": 340550,
+      "width": 96
+    },
+    {
+      "forward_flops": 10359275520,
+      "real_parameters": 2533118,
+      "width": 264
+    },
+    {
+      "forward_flops": 76665323520,
+      "real_parameters": 18727958,
+      "width": 720
+    }
+  ],
+  "timing_values_included": false,
+  "width_720_forward_flop_ratio": 342.05263157894734
+}

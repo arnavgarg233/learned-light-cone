@@ -1,0 +1,88 @@
+{
+  "pde": "2D linear advection (torus, exact roll solver, leakage floor 0)",
+  "source": "Colab T4 full run (pasted)",
+  "grid": 64,
+  "modes": 16,
+  "width": 32,
+  "n_layers": 4,
+  "m": 4,
+  "epochs": 220,
+  "seeds": [
+    0,
+    1
+  ],
+  "device": "cuda",
+  "solver_out_of_cone_leak": 0.00291,
+  "runtime_s": 3280.7,
+  "rows": [
+    {
+      "kind": "fno_global",
+      "seed": 0,
+      "val_mse": 1.58e-06,
+      "ood_mse": 0.663,
+      "out_of_cone_leak": 0.0538,
+      "n_params": 2103617
+    },
+    {
+      "kind": "fno_global",
+      "seed": 1,
+      "val_mse": 1.99e-06,
+      "ood_mse": 0.654,
+      "out_of_cone_leak": 0.0526,
+      "n_params": 2103617
+    },
+    {
+      "kind": "fno_tapered",
+      "seed": 0,
+      "val_mse": 2.65e-06,
+      "ood_mse": 0.657,
+      "out_of_cone_leak": 0.0455,
+      "n_params": 2103617
+    },
+    {
+      "kind": "fno_tapered",
+      "seed": 1,
+      "val_mse": 3e-06,
+      "ood_mse": 0.635,
+      "out_of_cone_leak": 0.0428,
+      "n_params": 2103617
+    },
+    {
+      "kind": "local_cnn",
+      "seed": 0,
+      "val_mse": 5.15e-06,
+      "ood_mse": 0.0306,
+      "out_of_cone_leak": 0.0029,
+      "n_params": 152065
+    },
+    {
+      "kind": "local_cnn",
+      "seed": 1,
+      "val_mse": 4.6e-06,
+      "ood_mse": 0.0358,
+      "out_of_cone_leak": 0.0029,
+      "n_params": 152065
+    }
+  ],
+  "summary": [
+    {
+      "kind": "fno_global",
+      "val_mse": 1.78e-06,
+      "ood_mse": 0.658,
+      "leak_corr": 0.0503
+    },
+    {
+      "kind": "fno_tapered",
+      "val_mse": 2.83e-06,
+      "ood_mse": 0.646,
+      "leak_corr": 0.0412
+    },
+    {
+      "kind": "local_cnn",
+      "val_mse": 4.88e-06,
+      "ood_mse": 0.0332,
+      "leak_corr": -0.0
+    }
+  ],
+  "verdict": "MITIGATION WORKS: leakage +0.050->-0.000; in-dist 4.9e-06 vs 1.8e-06; OOD 0.033 vs 0.658 (BETTER); CNN uses 14x fewer params"
+}

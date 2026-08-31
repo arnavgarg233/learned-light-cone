@@ -1,0 +1,8 @@
+model,record_role,architecture,params,leakage_definition,leakage_mean_pct,leakage_std_pct,corrected_excess_mean_pct,corrected_excess_std_pct,n_cells,anchor_cell_pct,verdict,note
+Stormer,released_checkpoint,global ViT (full self-attn),~0.3B,phi_out_raw,20.9,12.7,,,8,16.6,acausal,2 seasons x 4 regions; range 5.0-47.5
+FourCastNet v1,released_checkpoint,global 2D FFT (AFNO),~0.07B,phi_out_raw,5.83,2.10,5.36,2.10,30,4.12,acausal,paired 10 dates x 3 regions; raw phi_out and floor-subtracted corrected excess are distinct estimands
+ACE2-SOM,released_checkpoint,SFNO (spherical),~450M,Lambda_floor_subtracted,0.70,,,,1,0.70,near-floor,atlas metric; no raw fraction or per-region energy sampling retained
+Pangu-Weather,released_checkpoint,windowed 3D attention,~0.06B,phi_out_raw,0.41,0.06,,,4,0.34,near-floor,4 response cells from the 6-hour checkpoint; distinct from the direct 24-hour static certificate
+GenCast,released_checkpoint,local mesh + diffusion,~0.04B,phi_out_raw,0.13,0.10,,,3,0.21,near-floor,released full sampler over 3 regions; numerical-control-limited; one-pass denoiser excluded
+Aurora,released_checkpoint,local Swin (windowed attn),1.3B,phi_out_raw,0.62,0.62,,,2,0.18,near-floor,THIN n=2 (0.19 and 1.06); anchor cell 0.18
+local CNN,local_reference,finite convolution,<0.01B,phi_out_raw,0.46,0.02,0.005,0.011,30,0.51,near-floor,paired 10 dates x 3 regions; raw phi_out and floor-subtracted corrected excess are distinct estimands

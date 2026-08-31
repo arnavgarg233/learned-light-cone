@@ -1,0 +1,6 @@
+{
+  "all_pass": true,
+  "max_abs_amplitude_ratio_error": 3.263095295302776e-05,
+  "max_abs_exponent_error": 0.0003017439738390859,
+  "max_quadrature_rel_error_vs_closed_form": 3.092110543877597e-13
+}

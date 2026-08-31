@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools==81.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "learned-light-cone"
+version = "0.1.0"
+description = "Reference-free learned light-cone diagnostics for scientific emulators"
+requires-python = ">=3.11,<3.12"
+license = { file = "LICENSE" }
+dependencies = [
+  "numpy==2.4.6",
+  "scipy==1.17.1",
+  "matplotlib==3.11.0",
+  "torch==2.12.0",
+  "pandas==3.0.3",
+  "seaborn==0.13.2",
+  "PyYAML==6.0.3",
+]
+
+[project.optional-dependencies]
+deployed = [
+  "xarray==2026.4.0",
+  "gcsfs==2026.6.0",
+  "zarr==2.18.7",
+]
+
+[dependency-groups]
+dev = [
+  "pytest==9.1.0",
+  "ruff==0.16.1",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["learned_light_cone*"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-config --strict-markers -p no:cacheprovider"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+include = ["src/**/*.py", "scripts/**/*.py", "tests/**/*.py"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+
+[tool.ruff.format]
+line-ending = "lf"

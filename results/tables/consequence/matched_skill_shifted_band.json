@@ -1,0 +1,79 @@
+{
+  "independent_unit": "realization block with its own training, validation and evaluation draws",
+  "matching": "arms stopped at a common in-distribution one-step skill target",
+  "levels": {
+    "shift_band_one_step_nrmse": {
+      "fno_full": {
+        "n": 12,
+        "mean": 0.7490321502420327,
+        "ci_lo": 0.7425805203892815,
+        "ci_hi": 0.7554491741541683
+      },
+      "local_causal": {
+        "n": 10,
+        "mean": 0.040973235808817156,
+        "ci_lo": 0.03937204640031216,
+        "ci_hi": 0.042579655547795664
+      }
+    }
+  },
+  "ratios_fno_full_over_local_causal": {
+    "indist_one_step_nrmse": {
+      "n": 10,
+      "geomean": 0.9921632081002631,
+      "ci_lo": 0.9603649536381247,
+      "ci_hi": 1.0249470821949767
+    },
+    "shift_band_one_step_nrmse": {
+      "n": 10,
+      "geomean": 18.3212452006806,
+      "ci_lo": 17.54068669796867,
+      "ci_hi": 19.11016790982791,
+      "units_local_better": 10
+    },
+    "rollout_shift_slope": {
+      "1": {
+        "n": 10,
+        "geomean": 1.76502935942853,
+        "ci_lo": 1.675395930637487,
+        "ci_hi": 1.8616522405886355,
+        "units_local_better": 10
+      },
+      "2": {
+        "n": 10,
+        "geomean": 1.5909971537590237,
+        "ci_lo": 1.5186951863981846,
+        "ci_hi": 1.669234811309079,
+        "units_local_better": 10
+      },
+      "4": {
+        "n": 10,
+        "geomean": 1.5004096302737502,
+        "ci_lo": 1.4375640923575996,
+        "ci_hi": 1.570683541690611,
+        "units_local_better": 10
+      },
+      "8": {
+        "n": 10,
+        "geomean": 1.388461724570608,
+        "ci_lo": 1.3329549943020345,
+        "ci_hi": 1.4544089233774364,
+        "units_local_better": 10
+      },
+      "16": {
+        "n": 10,
+        "geomean": 0.7025084343952096,
+        "ci_lo": 0.5463374044289151,
+        "ci_hi": 0.8610124389499424,
+        "units_local_better": 2
+      },
+      "32": {
+        "n": 10,
+        "geomean": 0.08914096343644083,
+        "ci_lo": 0.07626688392905628,
+        "ci_hi": 0.10308738531251586,
+        "units_local_better": 0
+      }
+    }
+  }
+}

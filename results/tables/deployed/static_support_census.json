@@ -1,0 +1,79 @@
+{
+  "harmonized_24h_global_count": 11,
+  "harmonized_24h_only_blind_model": "Pangu-Weather direct graph",
+  "native_global_count": 10,
+  "rows": [
+    {
+      "global_at_harmonized_24h": false,
+      "global_at_native_lead": false,
+      "model": "Pangu-Weather direct graph",
+      "native_lead_hours": 24
+    },
+    {
+      "global_at_harmonized_24h": true,
+      "global_at_native_lead": true,
+      "model": "FengWu",
+      "native_lead_hours": 6
+    },
+    {
+      "global_at_harmonized_24h": true,
+      "global_at_native_lead": true,
+      "model": "FuXi 1.0 cascade",
+      "native_lead_hours": 6
+    },
+    {
+      "global_at_harmonized_24h": true,
+      "global_at_native_lead": true,
+      "model": "Stormer patch-size-2",
+      "native_lead_hours": 6
+    },
+    {
+      "global_at_harmonized_24h": true,
+      "global_at_native_lead": true,
+      "model": "FourCastNet v1",
+      "native_lead_hours": 6
+    },
+    {
+      "global_at_harmonized_24h": true,
+      "global_at_native_lead": true,
+      "model": "ACE2-SOM",
+      "native_lead_hours": 6
+    },
+    {
+      "global_at_harmonized_24h": true,
+      "global_at_native_lead": true,
+      "model": "Aurora 0.25 pretrained",
+      "native_lead_hours": 6
+    },
+    {
+      "global_at_harmonized_24h": true,
+      "global_at_native_lead": true,
+      "model": "GenCast 1 degree Mini",
+      "native_lead_hours": 12
+    },
+    {
+      "global_at_harmonized_24h": true,
+      "global_at_native_lead": false,
+      "model": "AIFS Single 1.0",
+      "native_lead_hours": 6
+    },
+    {
+      "global_at_harmonized_24h": true,
+      "global_at_native_lead": true,
+      "model": "GraphCast operational 0.25 degree",
+      "native_lead_hours": 6
+    },
+    {
+      "global_at_harmonized_24h": true,
+      "global_at_native_lead": true,
+      "model": "WeatherNext 2",
+      "native_lead_hours": 6
+    },
+    {
+      "global_at_harmonized_24h": true,
+      "global_at_native_lead": true,
+      "model": "WeatherNext Cyclones Mini",
+      "native_lead_hours": 6
+    }
+  ]
+}

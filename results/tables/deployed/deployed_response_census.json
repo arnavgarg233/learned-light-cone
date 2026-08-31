@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "what": "Compact per-cell records for the four released-checkpoint response summaries not otherwise represented by the paired FourCastNet record.",
+  "estimand": "Cosine-latitude weighted fraction of perturbation-response energy outside the model-step cone at 300 m/s.",
+  "sample_nesting": "Cells are repeated probes within one released checkpoint, not independent trained models.",
+  "records": [
+    {
+      "model": "Stormer",
+      "public_source": "https://huggingface.co/tungnd/stormer",
+      "license": "MIT",
+      "step_hours": 6.0,
+      "cone_radius_km": 6480.0,
+      "sampler_scope": "deterministic checkpoint response",
+      "numerical_control_status": "zero",
+      "numerical_control_max": 0.0,
+      "source_record_sha256": "51d791aad6067913cb9d83755297c14c4d3e36f052e28cac9680b0716a017e36",
+      "energy_fraction_cells": [0.16615457919268142, 0.18233834898067178, 0.47464223464201616, 0.29109093081515375, 0.20170716840172406, 0.1858764814457242, 0.05020678214334794, 0.12283095941804886],
+      "mean": 0.20935593562992103,
+      "sample_sd": 0.12709869620590622,
+      "n_cells": 8
+    },
+    {
+      "model": "Pangu-Weather",
+      "public_source": "https://github.com/198808xc/Pangu-Weather",
+      "license": "CC BY-NC-SA 4.0",
+      "step_hours": 6.0,
+      "cone_radius_km": 6480.0,
+      "sampler_scope": "deterministic 6-hour checkpoint response",
+      "numerical_control_status": "zero",
+      "numerical_control_max": 0.0,
+      "source_record_sha256": "1f5cc5264a92f8897f5615ee4ee29220b30f156e05bc60763694e1b29e8ed577",
+      "energy_fraction_cells": [0.003390157333232647, 0.004773948577873463, 0.004019880739016765, 0.004340832869432876],
+      "mean": 0.004131204879888938,
+      "sample_sd": 0.0005826971443340843,
+      "n_cells": 4
+    },
+    {
+      "model": "GenCast",
+      "public_source": "https://github.com/google-deepmind/graphcast",
+      "license": "Apache-2.0 for code and CC BY 4.0 for other materials",
+      "step_hours": 12.0,
+      "cone_radius_km": 12960.0,
+      "sampler_scope": "released full diffusion sampler with fixed sampling random numbers",
+      "numerical_control_status": "failed",
+      "numerical_control_max": 0.006262252008612069,
+      "source_record_sha256": "ebf8159cd4d789b47b3a4f0ccbaa498c8fc91bad04a41ba4da4db751d7a1697a",
+      "energy_fraction_cells": [0.0020994379988830015, 0.001560864063976448, 0.00010933948609627078],
+      "mean": 0.00125654718298524,
+      "sample_sd": 0.001029358827470359,
+      "n_cells": 3,
+      "interpretation_guard": "The response estimate is numerical-control-limited. The one-pass denoiser is a separate diagnostic and is not pooled into this row."
+    },
+    {
+      "model": "Aurora",
+      "public_source": "https://huggingface.co/microsoft/aurora",
+      "license": "MIT",
+      "step_hours": 6.0,
+      "cone_radius_km": 6480.0,
+      "sampler_scope": "deterministic checkpoint response",
+      "numerical_control_status": "zero",
+      "numerical_control_max": 0.0,
+      "source_record_sha256": "0d4ec4e2c01095139dd647ffe01e4146cb56e9f6a38714b213b7defe72fb69d5",
+      "energy_fraction_cells": [0.0018477114573786162, 0.010638036833158787],
+      "mean": 0.006242874145268701,
+      "sample_sd": 0.006215698682050345,
+      "n_cells": 2
+    }
+  ]
+}

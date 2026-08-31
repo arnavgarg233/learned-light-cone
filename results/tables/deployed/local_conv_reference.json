@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "what": "Measured local-convolution causal reference: single-step out-of-cone ENERGY fraction beyond the 300 m/s Lamb-wave cone (6480 km per 6 h step) on ERA5, the same statistic on the same grid as the released-checkpoint rows of results/tables/deployed/deployed_fleet.csv.",
+  "why_this_file_exists": "The local-reference row of deployed_fleet.csv previously stored 0.05 percent. That value was a definitional constant carried beside an area fraction of exactly 0.0 in the multi-model cone-law record, with no producing per-cell measurement behind it. It also sits 9.43 times below the 0.4713 percent out-of-cone footprint that the 500 km Gaussian probe itself has at t = 0, so no operator, including the identity map, can attain it. This file holds the four measured cells behind the value the table now prints, 0.49 percent at n = 4.",
+  "source_record": "gpu_battery_multimodel.json in the private research tree; the ERA5 inputs and the multi-gigabyte checkpoints are outside the boundary declared in data/manifest.json, so the producing record is not shipped here and its digest is pinned below instead",
+  "source_record_sha256": "9c2480527d06f278c7e833ea168731f3cf97ac2b00b03030a06ed34312ac1496",
+  "source_path_in_record": "models.local_conv.single_step_reach",
+  "operator": {
+    "model": "local-convolution operator (finite 3x3-kernel stack)",
+    "receptive_radius_km": 166.8,
+    "hidden": 48,
+    "n_layers": 6,
+    "dilation": 1,
+    "seed": 0
+  },
+  "numerical_control": {
+    "max": 0.0,
+    "mean": 0.0
+  },
+  "cone_radius_gravity_sound_300ms_km": 6480.0,
+  "cone_radius_advective_100ms_km": 2160.0,
+  "independent_unit": "probed cell (initial-condition date x region); n = 4, two dates crossed with two regions",
+  "n_cells": 4,
+  "cells": [
+    {
+      "ic_date": "2020-01-01T00 (winter)",
+      "region": "N.Pacific(30N,200E)",
+      "energy_frac_beyond_gravity_sound_300ms": 0.005206533078919644,
+      "energy_frac_beyond_advective_100ms": 0.006667173059126783,
+      "max_reach_km_thr0.01": 1492.0338146873605,
+      "reaches_antipode_thr0.01": false
+    },
+    {
+      "ic_date": "2020-01-01T00 (winter)",
+      "region": "S.Ocean(50S,90E)",
+      "energy_frac_beyond_gravity_sound_300ms": 0.004818913025570791,
+      "energy_frac_beyond_advective_100ms": 0.006143207284698299,
+      "max_reach_km_thr0.01": 1483.6680815664786,
+      "reaches_antipode_thr0.01": false
+    },
+    {
+      "ic_date": "2020-07-15T12 (summer)",
+      "region": "N.Pacific(30N,200E)",
+      "energy_frac_beyond_gravity_sound_300ms": 0.004493439993086707,
+      "energy_frac_beyond_advective_100ms": 0.005743207454714403,
+      "max_reach_km_thr0.01": 1472.189764511717,
+      "reaches_antipode_thr0.01": false
+    },
+    {
+      "ic_date": "2020-07-15T12 (summer)",
+      "region": "S.Ocean(50S,90E)",
+      "energy_frac_beyond_gravity_sound_300ms": 0.00502279269283023,
+      "energy_frac_beyond_advective_100ms": 0.006344538736146366,
+      "max_reach_km_thr0.01": 1488.1857171699205,
+      "reaches_antipode_thr0.01": false
+    }
+  ],
+  "energy_frac_beyond_300ms_mean": 0.004885419697601843,
+  "energy_frac_beyond_300ms_sd": 0.00030553579695118626,
+  "energy_frac_beyond_300ms_min": 0.004493439993086707,
+  "energy_frac_beyond_300ms_max": 0.005206533078919644,
+  "energy_frac_beyond_100ms_mean": 0.006224531633671463,
+  "leakage_mean_pct": 0.48854196976018427,
+  "anchor_cell_pct": 0.5206533078919644,
+  "shipped_row": "deployed_fleet.csv, local CNN row: 0.49 percent at n = 4, rounded from energy_frac_beyond_300ms_mean",
+  "retired_definitional_value_pct": 0.05,
+  "retired_value_status": "withdrawn; retained here only to name what the 0.49 percent measurement replaced",
+  "protocol_causal_floor_fraction": 0.004713325761258602,
+  "protocol_causal_floor_source": "round-two initial-condition error-bar record, per-sample causal_floor_fraction (the probe's own t = 0 out-of-cone footprint); not shipped in this repository"
+}

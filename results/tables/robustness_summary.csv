@@ -1,0 +1,8 @@
+gate,status,threshold,observed,scope
+mid_scale_ood_ratio,fail,<=0.10 for every seed,0.6078545908230655,five seeds at the lower-cost configuration
+full_scale_mps_ood_ratio,pass,<=0.10 for every seed,0.05199228799173286,device-specific seeds 2 and 3
+ic_three_sigma_separation,fail,>=3.0 sigma,2.5471181529187925,10 dates by 3 regions
+ic_standard_deviation_bands,pass,non-overlap,true,10 dates by 3 regions
+era5_ingest_exactness,pass,max_abs_diff<=0.001,0.0,26 channels
+stormer_round_two,not_run,not applicable,not_run,no round-two evidence
+aurora_round_two,not_run,not applicable,not_run,no round-two evidence

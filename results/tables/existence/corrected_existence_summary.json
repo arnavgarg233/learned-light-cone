@@ -1,0 +1,64 @@
+{
+  "modes": {
+    "6": {
+      "sym_total": 0.30603002303821875,
+      "upstream": 0.16512097733156264,
+      "upstream_se": 0.015752166939949415,
+      "floor_upstream": 0.08183151585942838,
+      "upstream_excess": 0.08328946147213426,
+      "floor_total": 0.3062350199304518
+    },
+    "8": {
+      "sym_total": 0.1713072353746469,
+      "upstream": 0.08930461495098543,
+      "upstream_se": 0.006499691411840759,
+      "floor_upstream": 0.05437162398819818,
+      "upstream_excess": 0.03493299096278726,
+      "floor_total": 0.2073872544829467
+    },
+    "10": {
+      "sym_total": 0.14136253718412412,
+      "upstream": 0.06864152820970375,
+      "upstream_se": 0.0022271294670117396,
+      "floor_upstream": 0.039508736559351,
+      "upstream_excess": 0.02913279165035275,
+      "floor_total": 0.1398694116413825
+    },
+    "12": {
+      "sym_total": 0.13025282183157222,
+      "upstream": 0.060551290758254286,
+      "upstream_se": 0.002628285650730432,
+      "floor_upstream": 0.030670747638927884,
+      "upstream_excess": 0.029880543119326402,
+      "floor_total": 0.09602194989245647
+    },
+    "16": {
+      "sym_total": 0.12694149651575556,
+      "upstream": 0.050207705140989475,
+      "upstream_se": 0.0008705206160657216,
+      "floor_upstream": 0.01982702337889955,
+      "upstream_excess": 0.030380681762089926,
+      "floor_total": 0.0529603047964626
+    },
+    "24": {
+      "sym_total": 0.12582060103335174,
+      "upstream": 0.050654648841147495,
+      "upstream_se": 0.0009921493970468367,
+      "floor_upstream": 0.007292107119225543,
+      "upstream_excess": 0.04336254172192195,
+      "floor_total": 0.024060815403422163
+    },
+    "32": {
+      "sym_total": 0.12543263218235692,
+      "upstream": 0.04994921789976155,
+      "upstream_se": 0.0007294941603419206,
+      "floor_upstream": 0.0023384190628171373,
+      "upstream_excess": 0.04761079883694441,
+      "floor_total": 0.006685882437545736
+    }
+  },
+  "cnn_upstream": 9.896404686261798e-05,
+  "solver_upstream": 0.0,
+  "untrained_upstream": 0.2832126598264771,
+  "note": "upstream_excess = FNO upstream leakage - identically-band-limited causal shift; >0 = genuine learned backward acausality"
+}

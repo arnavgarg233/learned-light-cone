@@ -1,0 +1,209 @@
+{
+  "synthetic": {
+    "accuracy": {
+      "fno_1step_relerr": 0.0003383481258571471,
+      "cnn_1step_relerr": 0.0005772634239465422
+    },
+    "metrics": {
+      "fno": {
+        "1": {
+          "frac_outside_exact": 0.9338751903602055,
+          "frac_outside_cnncone": 0.5186453419072288,
+          "frac_far": 0.18098115175962448,
+          "top1_correct_rate": 0.0,
+          "mean_rank_of_truth": 2.0,
+          "mean_max_reach_cells_1pct": 61.904761904761905,
+          "cnn_cone_reach_cells": 4,
+          "n_samples": 42
+        },
+        "2": {
+          "frac_outside_exact": 0.9257789154847463,
+          "frac_outside_cnncone": 0.4404726965086801,
+          "frac_far": 0.19897949340797605,
+          "top1_correct_rate": 0.9523809523809523,
+          "mean_rank_of_truth": 1.0476190476190477,
+          "mean_max_reach_cells_1pct": 62.523809523809526,
+          "cnn_cone_reach_cells": 8,
+          "n_samples": 42
+        },
+        "4": {
+          "frac_outside_exact": 0.9246263191813514,
+          "frac_outside_cnncone": 0.35920684394382296,
+          "frac_far": 0.20527312407890955,
+          "top1_correct_rate": 1.0,
+          "mean_rank_of_truth": 1.0,
+          "mean_max_reach_cells_1pct": 62.73809523809524,
+          "cnn_cone_reach_cells": 16,
+          "n_samples": 42
+        },
+        "6": {
+          "frac_outside_exact": 0.9253194090865907,
+          "frac_outside_cnncone": 0.2798453682944888,
+          "frac_far": 0.20801224595024473,
+          "top1_correct_rate": 1.0,
+          "mean_rank_of_truth": 1.0,
+          "mean_max_reach_cells_1pct": 63.19047619047619,
+          "cnn_cone_reach_cells": 24,
+          "n_samples": 42
+        },
+        "8": {
+          "frac_outside_exact": 0.9261086654095423,
+          "frac_outside_cnncone": 0.2107639561096827,
+          "frac_far": 0.2107639561096827,
+          "top1_correct_rate": 1.0,
+          "mean_rank_of_truth": 1.0,
+          "mean_max_reach_cells_1pct": 63.11904761904762,
+          "cnn_cone_reach_cells": 32,
+          "n_samples": 42
+        }
+      },
+      "cnn": {
+        "1": {
+          "frac_outside_exact": 0.5885315835475922,
+          "frac_outside_cnncone": 0.009637158596888185,
+          "frac_far": 0.0,
+          "top1_correct_rate": 1.0,
+          "mean_rank_of_truth": 1.0,
+          "mean_max_reach_cells_1pct": 5.0,
+          "cnn_cone_reach_cells": 4,
+          "n_samples": 42
+        },
+        "2": {
+          "frac_outside_exact": 0.6739924691972279,
+          "frac_outside_cnncone": 0.00023548007205439112,
+          "frac_far": 0.0,
+          "top1_correct_rate": 1.0,
+          "mean_rank_of_truth": 1.0,
+          "mean_max_reach_cells_1pct": 6.0,
+          "cnn_cone_reach_cells": 8,
+          "n_samples": 42
+        },
+        "4": {
+          "frac_outside_exact": 0.7328428697018396,
+          "frac_outside_cnncone": 1.1336908043869612e-06,
+          "frac_far": 0.0,
+          "top1_correct_rate": 1.0,
+          "mean_rank_of_truth": 1.0,
+          "mean_max_reach_cells_1pct": 9.0,
+          "cnn_cone_reach_cells": 16,
+          "n_samples": 42
+        },
+        "6": {
+          "frac_outside_exact": 0.7569554221062433,
+          "frac_outside_cnncone": 6.3207981811549035e-09,
+          "frac_far": 0.0,
+          "top1_correct_rate": 1.0,
+          "mean_rank_of_truth": 1.0,
+          "mean_max_reach_cells_1pct": 10.0,
+          "cnn_cone_reach_cells": 24,
+          "n_samples": 42
+        },
+        "8": {
+          "frac_outside_exact": 0.771826602163769,
+          "frac_outside_cnncone": 3.163432811421433e-11,
+          "frac_far": 3.163432811421433e-11,
+          "top1_correct_rate": 1.0,
+          "mean_rank_of_truth": 1.0,
+          "mean_max_reach_cells_1pct": 10.857142857142858,
+          "cnn_cone_reach_cells": 32,
+          "n_samples": 42
+        }
+      },
+      "exact": {
+        "1": {
+          "frac_outside_exact": 0.0,
+          "frac_outside_cnncone": 0.0,
+          "frac_far": 0.0,
+          "top1_correct_rate": 1.0,
+          "mean_rank_of_truth": 1.0,
+          "mean_max_reach_cells_1pct": 0.0,
+          "cnn_cone_reach_cells": 4,
+          "n_samples": 42
+        },
+        "2": {
+          "frac_outside_exact": 0.0,
+          "frac_outside_cnncone": 0.0,
+          "frac_far": 0.0,
+          "top1_correct_rate": 1.0,
+          "mean_rank_of_truth": 1.0,
+          "mean_max_reach_cells_1pct": 0.0,
+          "cnn_cone_reach_cells": 8,
+          "n_samples": 42
+        },
+        "4": {
+          "frac_outside_exact": 0.0,
+          "frac_outside_cnncone": 0.0,
+          "frac_far": 0.0,
+          "top1_correct_rate": 1.0,
+          "mean_rank_of_truth": 1.0,
+          "mean_max_reach_cells_1pct": 0.0,
+          "cnn_cone_reach_cells": 16,
+          "n_samples": 42
+        },
+        "6": {
+          "frac_outside_exact": 0.0,
+          "frac_outside_cnncone": 0.0,
+          "frac_far": 0.0,
+          "top1_correct_rate": 1.0,
+          "mean_rank_of_truth": 1.0,
+          "mean_max_reach_cells_1pct": 0.0,
+          "cnn_cone_reach_cells": 24,
+          "n_samples": 42
+        },
+        "8": {
+          "frac_outside_exact": 0.0,
+          "frac_outside_cnncone": 0.0,
+          "frac_far": 0.0,
+          "top1_correct_rate": 1.0,
+          "mean_rank_of_truth": 1.0,
+          "mean_max_reach_cells_1pct": 0.0,
+          "cnn_cone_reach_cells": 32,
+          "n_samples": 42
+        }
+      }
+    },
+    "Ks": [
+      1,
+      2,
+      4,
+      6,
+      8
+    ],
+    "cnn_radius_per_step": 4,
+    "N": 128,
+    "m": 1
+  },
+  "real_fourcastnet": {
+    "tag": "north_pacific_t2m",
+    "clat": 40.0,
+    "clon": 200.0,
+    "cone_km": 6480.0,
+    "signal_kms": 0.3,
+    "channel": "t2m",
+    "eps_frac": 0.05,
+    "sigma_km": 500.0,
+    "energy_frac_beyond_cone": 0.037536121904850006,
+    "peak_response": 0.16078834235668182,
+    "max_reach_km_thr0.01": 19979.998842704055,
+    "area_frac_beyond_cone_thr0.01": 0.03660229220986366,
+    "max_reach_km_thr0.001": 20013.578628451723,
+    "area_frac_beyond_cone_thr0.001": 0.7629216909408569,
+    "topk_attribution": {
+      "0.001": {
+        "k": 1024,
+        "frac_topk_outside_cone": 0.0,
+        "max_dist_in_topk_km": 3149.4592756288625
+      },
+      "0.005": {
+        "k": 5122,
+        "frac_topk_outside_cone": 0.0015618898867629833,
+        "max_dist_in_topk_km": 9810.529611465661
+      },
+      "0.01": {
+        "k": 10244,
+        "frac_topk_outside_cone": 0.008297540023428349,
+        "max_dist_in_topk_km": 10086.90139190171
+      }
+    }
+  }
+}

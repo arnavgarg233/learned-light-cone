@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "what": "Compiled support certificate for one direct application of the released Pangu-Weather 24-hour graph. Outputs outside the compiled support cannot depend on the source column for any weights.",
+  "method": "Static abstract interpretation over the released ONNX operator sequence. The interpreter over-approximates dependency support by treating every weight entry as structurally nonzero.",
+  "bound_direction": "The reachable set is an upper bound, so its complement is a certified-zero region.",
+  "distinct_from_empirical_response": "This is a static result for the direct 24-hour graph. The empirical Pangu records in deployed_response_census.json measure response energy from the 6-hour checkpoint and are a different object. Composing the 6-hour graph four times has an empty compiled complement.",
+  "checkpoint": {
+    "file": "pangu_weather_24.onnx",
+    "byte_size": 1181711187,
+    "sha256": "613a5c140a1399abcaffb4dbce32af373a1f5f56c515704f5be61925bb9fdcfd",
+    "structural_fingerprint_sha256": "7c825e8b4a05d2fc73135f2b1fa93df70ac9be3c19ee5c3f23d86ee40dfd2e07",
+    "release": "github:198808xc/Pangu-Weather@72bdd99096721e1a1f8912c37a9a3aff9ff0a4f2",
+    "license": "CC BY-NC-SA 4.0, commercial use forbidden by the release",
+    "redistributed_here": false,
+    "step_hours": 24
+  },
+  "source_record_sha256": {
+    "compiled_metrics": "1744c3a5f029335907d06f584f64c35de2dd4986f20cdba3ac4ecf2a535aed48",
+    "compiler_controls": "e080b7bfc18d92b6a439ed9b211992c2e5ce5e35ea3d84617d18fc90845477c4",
+    "support_census": "aaad7190f5833e2ba4e6fc295e7f3bdf261c67d810e563f8db72c8e37c5eadb2"
+  },
+  "compiler": {
+    "graph_nodes": 7717,
+    "forward_passes": 0,
+    "reach_py_sha256": "977cab35940c9f9fe4ac77d315e5ce88795f3c21f539b8449ac4f4a5ad4f5c5e",
+    "onnx_skim_py_sha256": "b25d0138f618ec63a9b606ef53170e02d8358876ad615eb21a5caad8df6bcb0f",
+    "controls_status": "PASS",
+    "controls": [
+      "known-answer probes",
+      "null source",
+      "saturating source",
+      "translation covariance"
+    ]
+  },
+  "grid": {
+    "n_lat": 721,
+    "n_lon": 1440,
+    "spacing_deg": 0.25,
+    "n_cells_total": 1038240,
+    "area_weighting": "cos latitude"
+  },
+  "earth_radius_km": 6371.0,
+  "antipode_km": 20015.086796020572,
+  "physical_cones": {
+    "100_ms_24h": {
+      "speed_ms": 100.0,
+      "step_hours": 24.0,
+      "radius_km": 8640.0
+    },
+    "300_ms_24h": {
+      "speed_ms": 300.0,
+      "step_hours": 24.0,
+      "radius_km": 25920.0,
+      "area_fraction": 1.0,
+      "note": "The radius exceeds the antipodal distance, so the cone covers the sphere."
+    }
+  },
+  "sites": [
+    {
+      "site": "north_atlantic",
+      "site_lat": 45.0,
+      "site_lon": 330.0,
+      "compiled_reach_km": 18787.70885571951,
+      "compiled_reach_deg": 168.96192499659224,
+      "n_cells_reachable": 668736,
+      "compiled_area_fraction": 0.732431213498424,
+      "ratio_compiled_over_cone": 0.732431213498424,
+      "certified_zero_area_fraction": 0.267568786501576,
+      "certified_zero_share_of_100_ms_cone": 0.020727392306307945
+    },
+    {
+      "site": "pacific",
+      "site_lat": 0.0,
+      "site_lon": 200.0,
+      "compiled_reach_km": 18903.137529574986,
+      "compiled_reach_deg": 170.0,
+      "n_cells_reachable": 839808,
+      "compiled_area_fraction": 0.8842526270897096,
+      "ratio_compiled_over_cone": 0.8842526270897096,
+      "certified_zero_area_fraction": 0.11574737291029058,
+      "certified_zero_share_of_100_ms_cone": 0.0017639599707916602
+    },
+    {
+      "site": "siberia",
+      "site_lat": 65.0,
+      "site_lon": 100.0,
+      "compiled_reach_km": 14327.592699374749,
+      "compiled_reach_deg": 128.85113675351178,
+      "n_cells_reachable": 544320,
+      "compiled_area_fraction": 0.5655202733291822,
+      "ratio_compiled_over_cone": 0.5655202733291822,
+      "certified_zero_area_fraction": 0.43447972667081786,
+      "certified_zero_share_of_100_ms_cone": 0.05071356878164866
+    },
+    {
+      "site": "southern_ocean",
+      "site_lat": -55.0,
+      "site_lon": 90.0,
+      "compiled_reach_km": 16747.221581273538,
+      "compiled_reach_deg": 150.6113820714774,
+      "n_cells_reachable": 607824,
+      "compiled_area_fraction": 0.6551704698802132,
+      "ratio_compiled_over_cone": 0.6551704698802132,
+      "certified_zero_area_fraction": 0.3448295301197868,
+      "certified_zero_share_of_100_ms_cone": 0.03443031591692665
+    }
+  ],
+  "certified_zero_area_fraction_min": 0.11574737291029058,
+  "certified_zero_area_fraction_max": 0.43447972667081786,
+  "headline_site": "pacific",
+  "hunga_tonga_witness": {
+    "source_lat_lon": [-20.5, 184.5],
+    "algerian_target_lat_lon": [20.5, 4.5],
+    "measured_arrival_hours": 18.1,
+    "measured_arrival_uncertainty_hours": 0.125,
+    "target_certified_zero": true,
+    "interpretation": "Qualitative physical source-target witness, not a measured Pangu response norm."
+  },
+  "reproduce": "python tools/compiled_reach/cone_reach.py --checkpoint /path/to/pangu_weather_24.onnx --step-hours 24 --record results/tables/deployed/compiled_reach_pangu.json"
+}

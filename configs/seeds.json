@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "authority": "configs/seeds.json",
+  "studies": {
+    "theory_checks": [
+      0
+    ],
+    "corrected_existence_probe": [
+      0
+    ],
+    "headline_mitigation": [
+      0,
+      1
+    ],
+    "mitigation_full_scale_mps": [
+      2,
+      3
+    ],
+    "mitigation_mid_scale": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "local_operator_ic_dispersion": [
+      0
+    ],
+    "attention_window_sweep": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+}
